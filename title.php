@@ -1,0 +1,1 @@
+Quick Shop for your easy shopping

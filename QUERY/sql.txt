@@ -1,0 +1,28 @@
+without group by: inner join
+SELECT d.district_name FROM districts AS d INNER JOIN thanas as t ON d.did = t.did ORDER BY d.district_name;
+
+
+with group by: inner join
+SELECT d.district_name FROM districts AS d INNER JOIN thanas as t ON d.did = t.did GROUP BY d.did ORDER BY d.district_name;
+
+Select district and total population:
+SELECT d.district_name, sum(t.population) as people FROM districts AS d INNER JOIN thanas as t ON d.did = t.did GROUP BY d.did ORDER BY d.district_name
+
+
+Select district and district hold maximum population: DESC
+SELECT d.district_name, sum(t.population) as people FROM districts AS d INNER JOIN thanas as t ON d.did = t.did GROUP BY d.did ORDER BY people DESC
+
+Select district and district hold maximum population: ASC
+SELECT d.district_name, sum(t.population) as people FROM districts AS d INNER JOIN thanas as t ON d.did = t.did GROUP BY d.did ORDER BY people
+
+
+Number of thana by district:
+SELECT d.district_name, COUNT(t.tid) as num_of_thana_ FROM districts AS d INNER JOIN thanas as t ON d.did = t.did GROUP BY d.did ORDER BY d.district_name;
+
+
+LEFT join
+
+SELECT d.district_name, t.thana_name FROM thanas AS t LEFT JOIN districts as d ON d.did = t.did ORDER BY d.district_name
+
+Right join: 
+SELECT d.district_name, t.thana_name FROM thanas AS t RIGHT JOIN districts as d ON d.did = t.did ORDER BY d.district_name
